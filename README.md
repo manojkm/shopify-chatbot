@@ -8,7 +8,6 @@ sdk_version: 6.22.0
 app_file: main.py
 pinned: false
 ---
-
 # Shopify Store FAQ Chatbot
 
 **Live URL:** https://shopify-chatbot-wmgr.onrender.com
@@ -25,13 +24,13 @@ An AI-powered customer support chatbot for Shopify stores. Customers can ask que
 
 ## Tech Stack
 
-| Layer | Technology | Role |
-|---|---|---|
-| **UI Framework** | [Gradio](https://gradio.app) by HuggingFace | Web interface — chat, voice input, examples |
-| **LLM** | Llama 3.3 70B (via [Groq](https://groq.com)) | Reads store context and generates answers |
-| **Speech-to-Text** | Whisper Large V3 Turbo (via [Groq](https://groq.com)) | Converts voice recordings to text questions |
-| **LLM Client** | [LiteLLM](https://litellm.ai) | Unified interface to call Groq's LLM API |
-| **Hosting** | [Render.com](https://render.com) | Free cloud hosting for the Python web server |
+| Layer                    | Technology                                          | Role                                         |
+| ------------------------ | --------------------------------------------------- | -------------------------------------------- |
+| **UI Framework**   | [Gradio](https://gradio.app) by HuggingFace          | Web interface — chat, voice input, examples |
+| **LLM**            | Llama 3.3 70B (via[Groq](https://groq.com))          | Reads store context and generates answers    |
+| **LLM Client**     | [LiteLLM](https://litellm.ai)                        | Unified interface to call Groq's LLM API     |
+| **Hosting**        | [Render.com](https://render.com)                     | Free cloud hosting for the Python web server |
+| **Speech-to-Text** | Whisper Large V3 Turbo (via[Groq](https://groq.com)) | Converts voice recordings to text questions  |
 
 ---
 
@@ -80,8 +79,8 @@ Open http://127.0.0.1:7860 in your browser.
 
 ## Environment Variables
 
-| Variable | Required | Description |
-|---|---|---|
-| `GROQ_API_KEY` | Yes | Get a free key at console.groq.com |
-| `SHOPIFY_STORE` | Optional | e.g. `mystore.myshopify.com` (for live data) |
+| Variable                 | Required | Description                                   |
+| ------------------------ | -------- | --------------------------------------------- |
+| `GROQ_API_KEY`         | Yes      | Get a free key at console.groq.com            |
+| `SHOPIFY_STORE`        | Optional | e.g.`mystore.myshopify.com` (for live data) |
 | `SHOPIFY_ACCESS_TOKEN` | Optional | Admin API token (`shpat_...`) for live data |
