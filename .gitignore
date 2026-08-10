@@ -8,3 +8,4 @@ dist/
 uv.lock
 pyproject.toml
 deploy.py
+.python-version
