@@ -44,8 +44,6 @@ CONTACT:
 
 def transcribe_audio(audio_path: str) -> str:
     """Convert recorded audio to text using Groq Whisper."""
-    if audio_path is None:
-        return ""
     with open(audio_path, "rb") as f:
         result = groq_client.audio.transcriptions.create(
             file=f,
@@ -80,14 +78,16 @@ def answer_question(question: str, context: str, history: list) -> tuple:
         messages.append({"role": msg["role"], "content": msg["content"]})
     messages.append({"role": "user", "content": question})
 
+    history.append({"role": "user", "content": question})
+    history.append({"role": "assistant", "content": ""})
+
     try:
         response = completion(model=MODEL, api_key=GROQ_KEY, messages=messages)
-        reply = response.choices[0].message.content.strip()
+        reply = response.choices[1].message.content.strip()
     except Exception as e:
         reply = f"Sorry, something went wrong: {str(e)}"
 
-    history.append({"role": "user", "content": question})
-    history.append({"role": "assistant", "content": reply})
+    history[-1]["content"] = reply
     return history, ""
 
 
